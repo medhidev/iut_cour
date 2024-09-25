@@ -1,0 +1,63 @@
+/* Police de caractère */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Corp de la page */
+body {
+    font-family: roboto;
+}
+
+/* En-tête */
+header {
+    text-align: center;
+    background-repeat: no-repeat;
+    color: aliceblue;
+    background-color: #002e5a;
+    position: fixed; /* Fixe le header en haut */
+    top: 0; /* Positionne le header tout en haut */
+    left: 0; /* Positionne le header tout à gauche */
+    width: 100%; /* S'assure que le header couvre toute la largeur */
+}
+
+nav {
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+a {
+    color: #125089;
+    text-decoration: none;
+}
+
+h2 {
+    color: #55679C;
+}
+
+/* Image de présentation */
+img {
+    width: 500px;
+}
+
+/* Bas de page */
+footer {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 98%;
+    background-color: #002e5a;
+}
+
+footer a {
+    color: white;
+}
+
+.footer-left {
+    color: white;
+    text-align: left;
+}
+
+.footer-right {
+    text-align: right;
+}
