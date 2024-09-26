@@ -42,5 +42,5 @@ app.get('/pages/:page', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Serveur démarré sur http://localhost:${port}`);
+    console.log(`Serveur ON sur http://localhost:${port}`);
 });
