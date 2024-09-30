@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // A faire la même choses pour les autres sous dossier CM, TP
+    // A faire la même choses pour les autres sous dossier CM et TP
 
     // Fonction pour lister les fichiers dans le sous-dossier
     function fetchFilesInSubfolder(subfolderId) {
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const fileLink = document.createElement('a');
 
                         fileLink.textContent = file.name;
-                        fileLink.href = `https://drive.google.com/uc?export=view&id=${file.id}`;
+                        fileLink.href = `https://drive.google.com/file/d/${file.id}/preview`; // Voir le PDF
                         fileLink.target = '_blank'; // Ouvrir dans un nouvel onglet
 
                         li.appendChild(fileLink);
