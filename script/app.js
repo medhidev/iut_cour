@@ -2,18 +2,26 @@ const courFolderId = '1BPRu2_p7-97SeFblvXEPgnGuwRmCt_Ue'; // l'ID du dossier "co
 const apiKey = 'AIzaSyA9iP4e40wMljgbJe9YrN4QEltWzB8MJR0'; // Clé API
 
 document.addEventListener('DOMContentLoaded', () => {
-    const fileList = document.getElementById('fileList');
-    const exoFicheList = document.getElementById('ExoFicheList');
-    const exoSujetList = document.getElementById('ExoSujetList');
-    const memoList = document.getElementById('MemoList');
 
-    // Récupérer la valeur de subfolderName depuis la balise <meta>
-    const metaElement = document.querySelector('meta[name="subfolder-name"]');
-    const subfolderName = metaElement ? metaElement.getAttribute('content') : 'R101'; // Valeur par défaut si non trouvée
+    // Zone d'affichage des Liste de fichiers
+    // const SujetTDList = document.getElementById('SujetTDList');
+    // const SujetTPList = document.getElementById('SujetTPList');
 
-    // Fonction pour récupérer l'ID du sous-dossier par son nom
-    function fetchSubfolderId(subfolderName) {
-    const url = `https://www.googleapis.com/drive/v3/files?q='${courFolderId}'+in+parents+and+name='${subfolderName}'+and+mimeType='application/vnd.google-apps.folder'&key=${apiKey}&fields=files(id, name)`;
+    const CMList = document.getElementById('CMList');
+    const TDList = document.getElementById('TDList');
+    const TPList = document.getElementById('TPList');
+
+    // Nom des dossiers 
+    // const metaElement = document.querySelector('meta[name="subfolder-name"]');
+    // const subfolderCM = 'CM';
+    const subfolderTD = 'TD';
+    // const subfolderTP = 'TP';
+
+
+    // Fonction pour récupérer l'ID du sous-dossier TP
+    // A voir si on récupère pas directement l'id en brut :/
+    function fetchSubfolderId(subfolderTD) {
+    const url = `https://www.googleapis.com/drive/v3/files?q='${courFolderId}'+in+parents+and+name='${subfolderTD}'+and+mimeType='application/vnd.google-apps.folder'&key=${apiKey}&fields=files(id, name)`;
 
         return fetch(url)
         .then(response => response.json())
@@ -21,19 +29,24 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.files.length > 0) {
                 return data.files[0].id; // Retourner l'ID du sous-dossier
             } else {
-                throw new Error(`Sous-dossier ${subfolderName} introuvable`);
+                throw new Error(`Sous-dossier ${subfolderTD} introuvable`);
             }
         });
     }
 
+    // A faire la même choses pour les autres sous dossier CM, TP
+
     // Fonction pour lister les fichiers dans le sous-dossier
     function fetchFilesInSubfolder(subfolderId) {
-        const url = `https://www.googleapis.com/drive/v3/files?q='${subfolderId}'+in+parents&key=${apiKey}&fields=files(id, name, mimeType)`;
+        const url = `https://www.googleapis.com/drive/v3/files?q="${subfolderId}"+in+parents&key=${apiKey}&fields=files(id, name, mimeType)`;
 
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    fileList.innerHTML = ''; // Réinitialiser la liste des fichiers
+                    CMList.innerHTML = ''; // Réinitialiser la liste des fichiers
+                    TDList.innerHTML = '';
+                    TPList.innerHTML = '';
+
                     data.files.forEach(file => {
                         const li = document.createElement('li');
                         const fileLink = document.createElement('a');
@@ -45,14 +58,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         li.appendChild(fileLink);
 
                         // Vérifier si le nom des fichiers
-                        if (file.name.startsWith('Exo')) {
-                            exoFicheList.appendChild(li); // Ajouter à la liste ExoFicheList
-                        } else if (file.name.startsWith('Sujet')) {
-                            exoSujetList.appendChild(li);
+                        if (file.name.startsWith('CM')) {
+                            CMList.appendChild(li);
+                        } else if (file.name.startsWith('TD')) {
+                            TDList.appendChild(li);
+                        } else if (file.name.startsWith('TP')) {
+                            TPList.appendChild(li);
                         } else if (file.name.startsWith('Memo')) {
-                            memoList.appendChild(li);
+                            CMList.appendChild(li);
                         } else {
-                            fileList.appendChild(li); // Ajouter à la liste générale fileList
+                            TDList.appendChild(li); // Valeur par défaut
                         }
                     });
                 })
@@ -60,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
         // Récupérer les fichiers du sous-dossier correspondant (ex: R101)
-        fetchSubfolderId(subfolderName)
+        fetchSubfolderId(subfolderTD)
             .then(subfolderId => {
                 fetchFilesInSubfolder(subfolderId); // Lister les fichiers du sous-dossier
             })
