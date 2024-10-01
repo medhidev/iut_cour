@@ -5,16 +5,27 @@
         <title>Learn Web</title>
         <link rel="stylesheet" href="pages/style.css"/>
         <link rel="icon" href="assets/logo.png">
+
+        <!-- Font awesome -->
+        <script src="https://kit.fontawesome.com/7aec2fa477.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
-        <!-- Titre -->
+        <!-- Titre de la page -->
         <header>
             <h1>Cours IUT Informatique III Paul Sabatier - Castres</h1>
         </header>
 
+        <!-- Barre de recherche -->
+        <div id="search_contener">
+            <input type="text" id="search" placeholder="Rechercher un cour" />
+            <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+        </div>
+
+        <h2><u>Liste des cours</u></h2>
+
+        <!-- Liste de cour -->
         <nav>
-            <h2><u>Cours IUT Informatique</u></h2>
             <ul>
                 <li><strong>R1.01</strong> - <a href="pages/r101.html">Algorithmique</a></li>
                 <li><strong>R1.02</strong> - <a href="pages/r102.html">Initiation au Développement web</a></li>
@@ -28,20 +39,29 @@
                 <li><strong>R1.10</strong> - <a href="pages/r110.html">Anglais</a></li>
                 <li><strong>R1.11</strong> - <a href="#">Base de la communication</a></li>
                 <li><strong>R1.12</strong> - <a href="#">Projet professionnel et personnel</a></li>
+
                 <p>
-                    <li>
-                        <strong>S1.03</strong> - <a href="#">Mise en place de son environnement de développement</a></li>
-                        autres matières ...
-                    </li>
+                    <li><strong>S1.01</strong> - <a href="#">Implementation d'un besoin Client</a></li>
+                    <li><strong>S1.02</strong> - <a href="#">Compar Algo</a></li>
+                    <li><strong>S1.03</strong> - <a href="#">Mise en place de son environnement de développement</a></li>
+                    <li><strong>S1.04</strong> - <a href="#">Création de Base de données</a></li>
+                    <li><strong>S1.05</strong> - <a href="#">Recueil des besoins</a></li>
+                    <li><strong>S1.06</strong> - <a href="#">Découverte de l'environnement et de l'économie</a></li>
+                </p>
+                <p>
+                    <strong>P1.01</strong> - <a href="#">Portfolio</a></li>
                 </p>
                 <p>
                     <li>
-                        <strong>Ressource </strong> - <a href="https://moodle.iut-tlse3.fr/my/courses.php" target="_blank">Cours Généraux</a></li></strong>
+                        <strong>Ressources</strong> - <a href="https://moodle.iut-tlse3.fr/my/courses.php" target="_blank">Cours Moodles</a></li></strong>
                     </li>
                 </p>
             </ul>
 
-            <img alt="img iut paul sab" src="assets/img_paulsab.png"/>
+            <!-- Image de l'IUT -->
+            <div id="image_iut">
+                <img alt="img iut paul sab" src="assets/img_paulsab.png"/>
+            </div>
         </nav>
 
     </body>

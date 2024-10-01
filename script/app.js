@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const subfolderTD = 'TD';
     // const subfolderTP = 'TP';
 
+    // Afficher les éléments dans la bonne matière
+    const metaElement = document.querySelector('meta[name="subfolder-name"]');
+    const matiere = metaElement ? metaElement.getAttribute('content') : 'algo'; // Valeur par défaut
 
     // Fonction pour récupérer l'ID du sous-dossier TP
     // A voir si on récupère pas directement l'id en brut :/
@@ -57,17 +60,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         li.appendChild(fileLink);
 
-                        // Vérifier si le nom des fichiers
-                        if (file.name.startsWith('CM')) {
-                            CMList.appendChild(li);
-                        } else if (file.name.startsWith('TD')) {
-                            TDList.appendChild(li);
-                        } else if (file.name.startsWith('TP')) {
-                            TPList.appendChild(li);
-                        } else if (file.name.startsWith('Memo')) {
-                            CMList.appendChild(li);
-                        } else {
-                            TDList.appendChild(li); // Valeur par défaut
+                        // Vérification de la matière (traitement dynamique)
+                        if (file.name.includes(`[${matiere}]`)) {
+                            // Vérification du Type
+                            if (file.name.startsWith('CM')) {
+                                CMList.appendChild(li);
+                            } else if (file.name.startsWith('TD')) {
+                                TDList.appendChild(li);
+                            } else if (file.name.startsWith('TP')) {
+                                TPList.appendChild(li);
+                            } else if (file.name.startsWith('Memo')) {
+                                CMList.appendChild(li);
+                            } else {
+                                TDList.appendChild(li); // Valeur par défaut dans TD
+                            }
                         }
                     });
                 })

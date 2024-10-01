@@ -18,8 +18,34 @@ header {
     width: 100%; /* S'assure que le header couvre toute la largeur */
 }
 
+/* Barre de recherche */
+#search_contener {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+i {
+    margin-top: 105px;
+    margin-left: 10px;
+}
+
+#search {
+    margin-top: 100px;
+    outline: none;
+    width: 40%;
+    height: 20px;
+}
+
+/* Titre des Listes */
+h2 {
+    padding-top: 5px;
+}
+
 nav {
-    padding-top: 60px; 
+    display: flex;
+    padding-top: 5px;
+    flex-direction: row;
 }
 
 a {
@@ -29,8 +55,14 @@ a {
 
 /* Image de présentation */
 img {
-    width: 500px;
+    width: 600px;
+    padding-left: 30%;
 }
+
+/* #image_iut {
+    display: flex;
+    justify-content: end;
+} */
 
 /* Bas de page */
 footer {
