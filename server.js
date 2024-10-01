@@ -13,6 +13,19 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Lecture des données JSON
+// app.get('script/config', (req, res) => {
+//     const configPath = path.join(__dirname, 'config.json');
+//     console.log('Chemin du fichier config:', configPath);  // Ajout du log
+
+//     fs.readFile(configPath, 'utf8', (err, data) => {
+//         if (err) {
+//             return res.status(500).send('Erreur lors de la lecture du fichier de configuration.');
+//         }
+//         res.json(JSON.parse(data)); // Retourner les données JSON
+//     });
+// });
+
 // Fonction pour obtenir les fichiers dans un sous-dossier donné
 function getFilesFromSubfolder(subfolder, callback) {
     const folderPath = path.join(__dirname, 'cour', subfolder);
