@@ -16,6 +16,11 @@ Elle permet aux utilisateurs d'accéder à des ressources et exercices organisé
 | **Entraînement dynamique** : Utilisation d'une IA pour générer des questions variées sur un même thème, afin de diversifier l'entraînement.               | ✕ |
 | **Moteur d'évaluation intelligent** : Explications détaillées après chaque réponse, avec adaptation du niveau de difficulté en fonction des performances. | ✕ |
 
+## __Structure__
+
+__Sémantique de nommage__ :
+```<Type>[Numéro]_<Matière>_<Thématique>_ex[0-n]```
+
 ## __Arborescence__
 
 ```

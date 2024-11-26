@@ -1,47 +1,102 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <title>Learn Web</title>
-        <link rel="stylesheet" href="style.css"/>
-        <link rel="icon" href="assets/logo.png">
-    </head>
 
-    <body>
-        <!-- Titre -->
-        <header>
-            <h1>Cours IUT Informatique III Paul Sabatier - Castres</h1>
-        </header>
+<head>
+    <meta charset="utf-8" />
+    <title>Learn Web</title>
+    <link rel="stylesheet" href="pages/style.css" />
+    <link rel="icon" href="assets/logo.png">
+    <script src="script/search.js" defer></script>
 
-        <nav>
-            <h2><u>Cours IUT Informatique</u></h2>
-            <ul>
-                <li><strong>&nbsp;&nbsp;CM&nbsp;&nbsp;&nbsp;</strong> - <a href="https://moodle.iut-tlse3.fr/my/courses.php" target="_blank">Cours Généraux</a></li>
-                <li><strong>R1.01</strong> - <a href="pages/r101.html">Algorithmique</a></li>
-                <li><strong>R1.02</strong> - <a href="pages/r102.html">Initiation au Développement web</a></li>
-                <li><strong>R1.03</strong> - <a href="pages/r103.html">Architecture des ordinateurs</a></li>
-                <li><strong>R1.04</strong> - <a href="pages/r104.html">Système d'exploitation</a></li>
-                <li><strong>R1.05</strong> - <a href="pages/r105.html">Introduction aux Base de données SQL</a></li>
-                <li><strong>R1.06</strong> - <a href="pages/r106.html">Mathématiques Discrètes</a></li>
-                <li><strong>R1.07</strong> - <a href="pages/r107.html">Outils mathématiques fondamentaux</a></li>
-                <li><strong>R1.08</strong> - <a href="pages/r108.html">Gestion des organisations</a></li>
-                <li><strong>R1.09</strong> - <a href="pages/r109.html">Economie durable et Numérique</a></li>
-                <li><strong>R1.10</strong> - <a href="pages/r110.html">Anglais</a></li>
-                <li><strong>R1.11</strong> - <a href="#">Base de la communication</a></li>
-                <li><strong>R1.12</strong> - <a href="#">Projet professionnel et personnel</a></li>
-                <p>
-                    <li>
-                        <strong>S1.03</strong> - <a href="#">Mise en place de son environnement de développement</a></li>
-                    </li>
-                </p>
-            </ul>
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/7aec2fa477.js" crossorigin="anonymous"></script>
+</head>
 
-            <img alt="img iut paul sab" src="assets/img_paulsab.png"/>
-        </nav>
+<body>
 
-    </body>
+    <!-- En tête -->
+    <header>
+        <h1>Cours IUT Informatique III-Paul Sabatier - Castres</h1>
+        <!-- Bouton menu -->
+        <button class="open-btn" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+
+        <!-- Barre de menu (cachée) -->
+        <div id="sideMenu" class="side-menu">
+            <a href=""></a>
+            <a href="https://moodle.iut-tlse3.fr/my/courses.php"><img src="assets/moodle-icon.png" /></a>
+            <a href="https://outlook.office365.com/mail/"><img src="assets/outlook-icon.png" /></a>
+            <a href="#ent-iut"><img src="assets/paulsab-icon.png" /></a>
+            <a href="https://auth2.iut-tlse3.fr/?url=aHR0cHM6Ly9lZHQuaXV0LXRsc2UzLmZyL3BsYW5uaW5nL2luZm9yYy9nMjA0NTk2Lmh0bWw%3D"><img src="assets/calendar.webp" /></a>
+            <a href="#chat-ia"><img src="assets/chat-ia.png" /></a>
+            <a href="javascript:void(0)" class="close-btn" onclick="toggleMenu()">×</a>
+        </div>
+    </header>
+
+    <!-- Barre de recherche -->
+    <div id="search_contener">
+        <input type="text" id="searchInput" placeholder="Rechercher un cour" />
+        <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+        <!-- <input type="text" id="searchInput" placeholder="Rechercher un cours" />
+            <button id="searchButton">Rechercher</button> -->
+    </div>
+
+    <h2><u>Liste des cours</u></h2>
+
+    <!-- Liste de cour -->
+    <nav>
+        <ul>
+            <li><strong>R1.01</strong> - <a href="pages/r101.html">Algorithmique</a></li>
+            <li><strong>R1.02</strong> - <a href="pages/r102.html">Initiation au Développement web</a></li>
+            <li><strong>R1.03</strong> - <a href="pages/r103.html">Architecture des ordinateurs</a></li>
+            <li><strong>R1.04</strong> - <a href="pages/r104.html">Système d'exploitation</a></li>
+            <li><strong>R1.05</strong> - <a href="pages/r105.html">Introduction aux Base de données SQL</a></li>
+            <li><strong>R1.06</strong> - <a href="pages/r106.html">Mathématiques Discrètes</a></li>
+            <li><strong>R1.07</strong> - <a href="pages/r107.html">Outils mathématiques fondamentaux</a></li>
+            <li><strong>R1.08</strong> - <a href="pages/r108.html">Gestion des organisations</a></li>
+            <li><strong>R1.09</strong> - <a href="pages/r109.html">Economie durable et Numérique</a></li>
+            <li><strong>R1.10</strong> - <a href="pages/r110.html">Anglais</a></li>
+            <li><strong>R1.11</strong> - <a href="#">Base de la communication</a></li>
+            <li><strong>R1.12</strong> - <a href="#">Projet professionnel et personnel</a></li>
+
+            <p>
+                <li><strong>S1.01</strong> - <a href="#">Implementation d'un besoin Client</a></li>
+                <li><strong>S1.02</strong> - <a href="#">Compar Algo</a></li>
+                <li><strong>S1.03</strong> - <a href="#">Mise en place de son environnement de développement</a></li>
+                <li><strong>S1.04</strong> - <a href="#">Création de Base de données</a></li>
+                <li><strong>S1.05</strong> - <a href="#">Recueil des besoins</a></li>
+                <li><strong>S1.06</strong> - <a href="#">Découverte de l'environnement et de l'économie</a></li>
+            </p>
+            <p>
+                <strong>P1.01</strong> - <a href="#">Portfolio</a></li>
+            </p>
+        </ul>
+
+        <!-- Image de l'IUT -->
+        <div id="conteneur_image_iut">
+            <img alt="image_iut" src="assets/img_paulsab.png" />
+        </div>
+    </nav>
 
     <footer>
         <span>&copy; 2024 Medhi Grimal</span>
     </footer>
+
+</body>
+
+<!-- Script du menu -->
+<script>
+    // Fonction pour ouvrir/fermer le menu
+    function toggleMenu() {
+        var sideMenu = document.getElementById("sideMenu");
+
+        // Si la largeur du menu est de 0, on l'ouvre à 250px, sinon on le ferme
+        if (sideMenu.style.width === "0px" || sideMenu.style.width === "") {
+            sideMenu.style.width = "200px";  // largeur de la barre lors de l'ouverture
+        } else {
+            sideMenu.style.width = "0";  // refermer la barre
+        }
+    }
+</script>
+
 </html>

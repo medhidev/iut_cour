@@ -4,6 +4,7 @@
 /* Corp de la page */
 body {
     font-family: roboto;
+    margin: 0;
 }
 
 /* En-tête */
@@ -19,7 +20,7 @@ header {
 }
 
 nav {
-    padding-top: 60px;
+    padding-top: 90px;
     padding-bottom: 50px;
 }
 

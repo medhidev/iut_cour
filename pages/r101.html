@@ -6,38 +6,36 @@
         <link rel="stylesheet" href="style-cours.css"/>
         <link rel="icon" href="../assets/logo.png">
         <script src="../script/app.js"></script>
-        <meta name="subfolder-name" content="R101"/>
+
+        <!-- Variables du script app.js -->
+        <!-- <meta name="subfolder-CM" content="CM"/>
+        <meta name="subfolder-TP" content="TD"/>
+        <meta name="subfolder-TD" content="TP"/> -->
     </head>
 
     <body>
-        <!-- Titre -->
+        <!-- Nom matière -->
         <header>
             <h1>Algorithmique</h1>
         </header>
 
+        <!-- Listes des types de cours -->
         <nav>
-            <h2><u>Cours Théoriques</u></h2>
-            <!-- Mettre les cours Moodles -->
-            <h3><u>Cours Moodles</u></h3>
-            <ul id="courMoodle"></ul>
+            <h2><u>Cours Magistraux (CM)</u></h2>
+            <ul id="CMList"></ul>
 
-            <h3><u>Notes</u></h3>
-            <ul id="fileList"></ul>
+            <h2><u>Travaux Dirigés (TD)</u></h2>
+            <ul id="SujetTDList"></ul>
+            <ul id="TDList"></ul>
 
-            <h2><u>Exercices (Sujets)</u></h2>
-            <ul id="ExoSujetList"></ul>
-
-            <h2><u>Exercices (Corrections)</u></h2>
-            <ul id="ExoFicheList"></ul>
-
-            <h2><u>Sites utiles</u></h2>
-            <ul id="MemoList">
-                <li><a href="#">Futur doc compAlgo ...</a></li>
-            </ul>
+            <h2><u>Travaux Pratiques (TP)</u></h2>
+            <ul id="SujetTPList"></ul>
+            <ul id="TPList"></ul>
         </nav>
 
     </body>
 
+    <!-- Bas de page -->
     <footer>
         <div class="footer-left">
             <a href="../index.html">Retour</a>
